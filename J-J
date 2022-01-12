@@ -1,0 +1,18 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int tc, n, k, p, i, res;
+    cin >> tc;
+    for (i = 0; i < tc; i++)
+    {
+        cin >> n >> k >> p;
+        res = (k + p) % n;
+
+        if(res == 0)
+        res = n;
+
+        cout << "Case " << i + 1 << ": " << res << endl;
+    }
+}
