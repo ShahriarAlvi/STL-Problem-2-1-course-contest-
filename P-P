@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+vector<float> v;
+
+int main()
+{
+    float tc, n, i, cnt, a, sum, res, per;
+    cin >> tc;
+    while (tc--)
+    {
+        v.clear();
+        cin >> n;
+        sum = 0, cnt = 0;
+        for (i = 0; i < n; i++)
+        {
+            cin >> a;
+            sum += a;
+            v.push_back(a);
+        }
+
+        res = sum / n;
+
+        for (i = 0; i < n; i++)
+        {
+            if (v[i] > res)
+                cnt++;
+        }
+
+        printf("%.3f",(float)(cnt * 100) / n);
+        cout << "%" << endl; 
+    }
+}
