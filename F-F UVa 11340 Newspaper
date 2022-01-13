@@ -1,0 +1,54 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int arr[129]; // value array
+int arr2[129]; //per count array
+
+int main()
+{
+    string s;
+    char c;
+    int tc, a, n, i, j, k, cnt;
+    cin >> tc; //testcase
+    while (tc--)
+    {
+        cnt = 0; //totalcount
+        for (i = 0; i < 129; i++) //initialization
+        {
+            arr[i] = 0;
+            arr2[i] = 0;
+        } 
+
+        cin >> n; //value char number
+        while (n--)
+        {
+            getchar();
+            cin >> c >> a;
+            arr[c] = a; // obtaining value for the char
+        }
+
+        cin >> k; //number of strings
+        for(j = 0; j < k; j++)
+        {
+            cin >> s;
+
+            for (i = 0; i < s.size(); i++)
+                arr2[s[i]]++; //counting number of char
+        }
+
+        for(i = 0; i < 129; i++){
+            cnt += arr[i]*arr2[i]; //final count multiplying value with number
+        }
+
+        cout << arr2[s[0]] << endl;
+        cout << arr2[s[1]] << endl;
+        cout << arr2[s[2]] << endl;
+
+                cout << arr[s[0]] << endl;
+        cout << arr[s[1]] << endl;
+        cout << arr[s[2]] << endl;
+
+        cout << (float)cnt / 100.0 << "$" << endl; //dollars
+
+    }
+}
