@@ -1,54 +1,39 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int arr[129]; // value array
-int arr2[129]; //per count array
+map<char, int> rec1;
+map<char, int> rec2;
 
 int main()
 {
-    string s;
     char c;
     int tc, a, n, i, j, k, cnt;
-    cin >> tc; //testcase
+    cin >> tc; // testcase
     while (tc--)
     {
-        cnt = 0; //totalcount
-        for (i = 0; i < 129; i++) //initialization
-        {
-            arr[i] = 0;
-            arr2[i] = 0;
-        } 
-
-        cin >> n; //value char number
+        cnt = 0;
+        rec1.clear();
+        rec2.clear();
+        cin >> n; // value char number
         while (n--)
         {
             getchar();
             cin >> c >> a;
-            arr[c] = a; // obtaining value for the char
+            rec1[c] = a;  
         }
 
-        cin >> k; //number of strings
-        for(j = 0; j < k; j++)
+        cin >> k; // number of strings
+        getchar();
+        for (j = 0; j < k; j++)
         {
-            cin >> s;
+            string s;
+            getline(cin, s);
 
-            for (i = 0; i < s.size(); i++)
-                arr2[s[i]]++; //counting number of char
+            for(i = 0; i < s.size(); i++)
+            cnt += rec1[s[i]];
         }
 
-        for(i = 0; i < 129; i++){
-            cnt += arr[i]*arr2[i]; //final count multiplying value with number
-        }
-
-        cout << arr2[s[0]] << endl;
-        cout << arr2[s[1]] << endl;
-        cout << arr2[s[2]] << endl;
-
-                cout << arr[s[0]] << endl;
-        cout << arr[s[1]] << endl;
-        cout << arr[s[2]] << endl;
-
-        cout << (float)cnt / 100.0 << "$" << endl; //dollars
-
+        cout << fixed << setprecision(2) << (double)cnt / 100.0 << "$" << endl; // dollars
     }
+
 }
