@@ -1,0 +1,41 @@
+#include <bits/stdc++.h>
+using namespace std;
+vector<char> v;
+
+int main()
+{
+    int i, j, k, z, flag, temp;
+    while (1)
+    {
+        v.clear();
+        string s;
+        cin >> s;
+        if (s[0] == '#')
+            break;
+
+        flag = 0;
+
+        for (i = 0; i < s.size() - 1; i++)
+        {
+            if (s[i] < s[i + 1])
+                flag = 1;
+        }
+
+        if (flag == 0)
+            cout << "No Successor" << endl;
+
+        else if(flag == 1)
+        {
+            z = s.size();
+            for (i = 0; i < s.size(); i++)
+            {
+                v.push_back(s[i]);
+            }
+            next_permutation(v.begin(), v.end());
+            for(auto it = v.begin(); it != v.end(); it++)
+            cout << *it;
+
+            cout << endl;
+        }
+    }
+}
